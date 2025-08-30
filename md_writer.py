@@ -34,7 +34,7 @@ def md_writer(cards: list[Cardc]):
                     f.write("\n CMC: " + card.cmc)
                     f.write("\n Number of cards: 1" )
                     f.write("\n Img_uri: " + card.imgUrl )
-                    f.write("\n In my cube: " )
+                    f.write("\n In my cube: False" )
                     f.write("\n---")
             except FileExistsError:
                 fileName = dir_name +"/"+ card.name + ".md"
