@@ -1,14 +1,17 @@
-#from mtgsdk import Card
 import requests
-import json
-from urllib.parse import urlparse
-#Scryfall api
 
-def get_img_uri(mtgo_id):
+
+#Scryfall api
+def get_img_uri(card_name,set):
   
+  url = "https://api.scryfall.com/cards/named?exact="+str(card_name)
+     
   try:
-    url = "https://api.scryfall.com/cards/mtgo/"+str(mtgo_id)
-    jsonResponse = requests.get(url).json()
+    if set:
+        option = {'set':set}
+        jsonResponse = requests.get(url,params=option).json()
+    else:
+        jsonResponse = requests.get(url).json()
     card_uri = jsonResponse['image_uris']["normal"]
     return card_uri
   except Exception as e:

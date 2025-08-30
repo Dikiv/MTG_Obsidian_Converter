@@ -3,7 +3,6 @@
 #intended for obsidian bases.
 
 from mtg_api_accessor import get_img_uri
-from md_writer import md_writer
 from Card import Cardc
 import csv
 
@@ -22,8 +21,8 @@ def csv_reader(csvFile):
           
           sTypes = types[-1:][0].strip().split(" ")
           
-          mtgo_id = card_info[15]
-          img_uri = get_img_uri(mtgo_id)
+          #mtgo_id = card_info[15]
+          img_uri = get_img_uri(card_info[0],card_info[4])
           
           #Assign data to object
           cards.append(Cardc(card_info[0],card_info[1],mType,sTypes,card_info[3],card_info[4],img_uri))
