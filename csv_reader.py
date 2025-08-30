@@ -4,32 +4,30 @@
 
 from mtg_api_accessor import get_img_uri
 from md_writer import md_writer
-from Card import Card
+from Card import Cardc
 import csv
 
 
-with open('testcsv.csv', mode='r') as csvfile:
-    reader = csv.reader(csvfile)
-    
-    #read categories of cards 
-    row_0 = reader.__next__()
-    for card_info in reader:
+def csv_reader(csvFile):
+  with open(csvFile, mode='r') as cf:
+      reader = csv.reader(cf)
+      cards = []
 
-        
-        #splitting up types
-        types = card_info[2].split("-")
-        mType = types[0].strip()
-        
-        sTypes = types[-1:][0].strip().split(" ")
-        
-        mtgo_id = card_info[15]
-        img_uri = get_img_uri(mtgo_id)
-        
-        #Assign data to object
-        card0 = Card(card_info[0],card_info[1],mType,sTypes,card_info[3],card_info[4])
-
-        #Find/Make correct directory
-        md_writer(card0,img_uri)
+      #read categories of cards 
+      reader.__next__()
+      for card_info in reader:
+          #splitting up types
+          types = card_info[2].split("-")
+          mType = types[0].strip()
+          
+          sTypes = types[-1:][0].strip().split(" ")
+          
+          mtgo_id = card_info[15]
+          img_uri = get_img_uri(mtgo_id)
+          
+          #Assign data to object
+          cards.append(Cardc(card_info[0],card_info[1],mType,sTypes,card_info[3],card_info[4],img_uri))
+  return cards
 
         
 
