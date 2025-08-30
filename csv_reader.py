@@ -7,16 +7,6 @@ from md_writer import md_writer
 from Card import Card
 import csv
 
-class Card:
-  def __init__(self, name, cmc, type, subtypes, color, set):
-    self.name = name 
-    self.cmc = cmc
-    self.type = type
-    if subtypes:
-       self.subtypes = subtypes
-    self.color = color
-    self.set = set
-
 
 with open('testcsv.csv', mode='r') as csvfile:
     reader = csv.reader(csvfile)
@@ -32,7 +22,7 @@ with open('testcsv.csv', mode='r') as csvfile:
         
         sTypes = types[-1:][0].strip().split(" ")
         
-        mtgo_id = print(card_info[15])
+        mtgo_id = card_info[15]
         img_uri = get_img_uri(mtgo_id)
         
         #Assign data to object
