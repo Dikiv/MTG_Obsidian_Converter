@@ -3,13 +3,10 @@ import requests
 
 #Scryfall api
 def get_img_uri(card_name,set):
-  
   url = "https://api.scryfall.com/cards/named?exact="+str(card_name)
-     
   try:
     if set:
-        option = {'set':set}
-        jsonResponse = requests.get(url,params=option).json()
+        jsonResponse = requests.get(url,params={'set':set}).json()
     else:
         jsonResponse = requests.get(url).json()
     card_uri = jsonResponse['image_uris']["normal"]

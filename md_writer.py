@@ -1,12 +1,12 @@
 from pathlib import Path
 from Card import Cardc
 
-def make_cube_dir(cube_name, color, type, cmc):
+def make_cube_dir(cube_name, color, type, cmc, dest):
     #Find/Make correct directory
         if color:
-            dir_name = cube_name +"/"+ color +"/"+ type +"/"+ cmc
+            dir_name = dest + "/" + cube_name +"/"+ color +"/"+ type +"/"+ cmc
         else:
-            dir_name = cube_name +"/C/"+ type +"/"+ cmc
+            dir_name = dest + "/" + cube_name +"/C/"+ type +"/"+ cmc
         try:
           Path(dir_name).mkdir(parents=True,exist_ok=True)
         except PermissionError:
@@ -17,10 +17,10 @@ def make_cube_dir(cube_name, color, type, cmc):
         return dir_name
 
 
-def md_writer(cards: list[Cardc]):
+def md_writer(cards: list[Cardc],dest):
         for card in cards:   
             #Build the directory and return the name of the dir
-            dir_name = make_cube_dir("Cube", card.color, card.type, card.cmc)
+            dir_name = make_cube_dir("Cube", card.color, card.type, card.cmc, dest)
             #Write card data into .md file
             fileName = dir_name +"/"+ card.name + ".md"
             try:
