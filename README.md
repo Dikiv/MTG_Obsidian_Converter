@@ -4,11 +4,11 @@
 This is a simple program for converting MTG cards in csv format into a .md format
 intended for obsidian bases.
 
-##Prerequisites
+## Prerequisites
 In order to use this tool you simply require a '.csv' file containing the data related to the cards you want converted to a '.md' format,
 and an internet connection to recieve the 'img uri' related to the cards, as this tool runs the scryfall API to recieve the correct uri's (https://scryfall.com/docs/api)
 
-##Commands
+## Commands
 Launch the conversion process from CLI:
 ```
 python .\main.py c 'source csv directory' 'destination directory'
@@ -18,7 +18,7 @@ Launch the GUI:
 python .\main.py 
 ```
 
-##Output
+## Output
 A successful output of the converter should provide a sorted dirctory in the format:
 Dest_folder/Cube/Color/CardType/CMC
 ```
