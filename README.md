@@ -19,18 +19,12 @@ python .\main.py
 ```
 
 ##Output
-A successful output of the converter should provide a sorted dirctory: 
+A successful output of the converter should provide a sorted dirctory in the format:
+Dest_folder/Cube/Color/CardType/CMC
 ```
 +---Dest_folder
 |   
 \---Cube
-    +---Artifact
-    |   +---1
-    |   +---2
-    |   ...
-    +---Artifact Creature
-    |   +---2
-    |   ...
     +---B
     |   +---Creature
     |   |   +---1
@@ -38,13 +32,16 @@ A successful output of the converter should provide a sorted dirctory:
     |   +---Enchantment
     |   |   +---1
     |   |   \---3
+    |   ...
     |   +---Instant
     |   |   +---1
     |   ...
     |   +---Legendary Creature
     |   |   \---2
+    |   ...
     |   +---Legendary Planeswalker
     |   |   \---6
+    |   ...
     |   \---Sorcery
     |       +---1
     |  ...
