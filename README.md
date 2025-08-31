@@ -1,12 +1,39 @@
 #mtg bases converter
 ------------------------------------------------------------
-This is a program for converting MTG cards in csv format into a .md format
+##Introduction
+This is a simple program for converting MTG cards in csv format into a .md format
 intended for obsidian bases.
 
-```
-//launches the conversion process from command line
-python .\main.py c 'source csv directory' 'destination directory'
+##Prerequisites
+In order to use this tool you simply require a '.csv' file containing the data related to the cards you want converted to a '.md' format,
+and an internet connection to recieve the 'img uri' related to the cards, as this tool runs the scryfall API to recieve the correct uri's (https://scryfall.com/docs/api)
 
-//launches the gui interface
+##Commands
+Launch the conversion process from CLI:
+```
+python .\main.py c 'source csv directory' 'destination directory'
+```
+Launch the GUI:
+```
 python .\main.py 
+```
+
+##Output
+A successful output of the converter should provide a sorted dirctory: 
+```
+
+```
+and each '.md' file should have the following format, with the name 'Card_name.md':
+```
+---
+ tags: 
+ - Bird
+ Type: Creature
+ Color: W
+ CMC: 1
+ Number of cards: 44
+ Img_uri: https://cards.scryfall.io/normal/front/c/c/cc8e4563-04bb-46b5-835e-64ba11c0e972.jpg?1730489133
+ In my cube: False
+ set: fdn
+---
 ```
