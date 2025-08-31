@@ -21,7 +21,33 @@ python .\main.py
 ##Output
 A successful output of the converter should provide a sorted dirctory: 
 ```
-
++---Dest_folder
+|   
+\---Cube
+    +---Artifact
+    |   +---1
+    |   +---2
+    |   ...
+    +---Artifact Creature
+    |   +---2
+    |   ...
+    +---B
+    |   +---Creature
+    |   |   +---1
+    |   ...
+    |   +---Enchantment
+    |   |   +---1
+    |   |   \---3
+    |   +---Instant
+    |   |   +---1
+    |   ...
+    |   +---Legendary Creature
+    |   |   \---2
+    |   +---Legendary Planeswalker
+    |   |   \---6
+    |   \---Sorcery
+    |       +---1
+    |  ...
 ```
 and each '.md' file should have the following format, with the name 'Card_name.md':
 ```
