@@ -1,5 +1,4 @@
 class Cardc:
-
  def __init__(self, name, cmc, type, subtypes, color, set, imgUrl):
     self.name = name 
     self.cmc = cmc
@@ -9,5 +8,10 @@ class Cardc:
        self.subtypes = subtypes
     if color:
         self.color = color
+    else:
+            #if type == 'Land':
+            #    self.color = 'Lands'
+            
+        self.color = 'C'
     if imgUrl:
         self.imgUrl = imgUrl

@@ -3,25 +3,27 @@ from Card import Cardc
 
 def make_cube_dir(cube_name, color, type, cmc, dest):
     #Find/Make correct directory
-        if color:
-            dir_name = dest + "/" + cube_name +"/"+ color +"/"+ type +"/"+ cmc
-        else:
-            dir_name = dest + "/" + cube_name +"/C/"+ type +"/"+ cmc
+        dir_name = dest + "/" + cube_name +"/"+ color +"/"+ type +"/"+ cmc
+        
         try:
           Path(dir_name).mkdir(parents=True,exist_ok=True)
         except PermissionError:
           print(f"permission to create directory was denied")
         except Exception as e:
+          
           print(f"An error occurred: {e}")
         
         return dir_name
 
 
 def md_writer(cards: list[Cardc],dest):
+        print(cards[len(cards)-1].color)
         for card in cards:   
             #Build the directory and return the name of the dir
-            dir_name = make_cube_dir("Cube", card.color, card.type, card.cmc, dest)
-            #Write card data into .md file
+            #print(card.name + " " + card.type)
+            
+            dir_name = make_cube_dir("fdn_cube", card.color, card.type, card.cmc, dest)
+            
             fileName = dir_name +"/"+ card.name + ".md"
             try:
                 with open(fileName, "x") as f:
