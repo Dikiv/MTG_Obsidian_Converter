@@ -2,11 +2,12 @@ import requests
 
 
 #Scryfall api
-def get_img_uri(card_name,set):
-  url = "https://api.scryfall.com/cards/named?exact="+str(card_name)
+def get_img_uri(card_name,set_code):
+  #set_code = 'fdn'
+  url = f"https://api.scryfall.com/cards/named?exact={card_name}"
   try:
     if set:
-        jsonResponse = requests.get(url,params={'set':set}).json()
+        jsonResponse = requests.get(url,params={'set':set_code}).json()
     else:
         jsonResponse = requests.get(url).json()
     card_uri = jsonResponse['image_uris']["normal"]

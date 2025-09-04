@@ -14,17 +14,23 @@ def main(args):
     arg_mode = args[1]
     if(arg_mode == 'c'):
         loading = ConsoleLoading()
-        #t = threading.Thread(target=loading.runLoading)
+        t = threading.Thread(target=loading.runLoading)
         try:     
-         #   t.start()
+            t.start()
             src = args[2]
-            cards = csv_reader(src)
+
+            if len(args) > 4:
+                cards = csv_reader(src,args[4])
+            else:
+                cards = csv_reader(src,'')
+            
             dest = args[3]
+                
             md_writer(cards,dest)
         except Exception as e:
             print(e)
         loading.stopLoading()  
-        #t.join()    
+        t.join()    
 
 if __name__=="__main__":
     main(sys.argv)

@@ -9,9 +9,6 @@ class Cardc:
     if color:
         self.color = color
     else:
-            #if type == 'Land':
-            #    self.color = 'Lands'
-            
         self.color = 'C'
     if imgUrl:
         self.imgUrl = imgUrl

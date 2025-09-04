@@ -17,10 +17,8 @@ def make_cube_dir(cube_name, color, type, cmc, dest):
 
 
 def md_writer(cards: list[Cardc],dest):
-        print(cards[len(cards)-1].color)
         for card in cards:   
             #Build the directory and return the name of the dir
-            #print(card.name + " " + card.type)
             
             dir_name = make_cube_dir("fdn_cube", card.color, card.type, card.cmc, dest)
             

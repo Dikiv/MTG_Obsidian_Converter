@@ -7,7 +7,7 @@ from Card import Cardc
 import csv
 
 
-def csv_reader(csvFile):
+def csv_reader(csvFile,pref_set):
   with open(csvFile, mode='r') as cf:
       reader = csv.reader(cf)
       cards = []
@@ -22,16 +22,11 @@ def csv_reader(csvFile):
           sTypes = types[-1:][0].strip().split(" ")
           
           #mtgo_id = card_info[15]
-          img_uri = get_img_uri(card_info[0],card_info[4])
+          if pref_set:
+            img_uri = get_img_uri(card_info[0],pref_set)
+          else:
+            img_uri = get_img_uri(card_info[0],card_info[4])
           
-          
-          #if card_info[3] == '' or card_info[3] == "":
-          #  cards.append(Cardc(card_info[0],card_info[1],mType,sTypes,'C',card_info[4],img_uri))
-          
-          #if mType == 'Land':
-          #  card_info[3] = 'Land'
-           # print(card_info[0] + " " + card_info[3])   
-
           #Assign data to object
           cards.append(Cardc(card_info[0],card_info[1],mType,sTypes,card_info[3],card_info[4],img_uri))
           #print(len(cards))
