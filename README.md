@@ -9,9 +9,16 @@ In order to use this tool you simply require a '.csv' file containing the data r
 and an internet connection to recieve the 'img uri' related to the cards, as this tool runs the scryfall API to recieve the correct uri's (https://scryfall.com/docs/api)
 
 ## Commands
+
+
 Launch the conversion process from CLI:
 ```
 python .\main.py c 'source csv directory' 'destination directory'
+```
+Optional search for imgUrl in a specific set, defaults to csv set specified.
+
+```
+python .\main.py c 'source csv directory' 'destination directory' 'set'
 ```
 Launch the GUI:
 ```
